@@ -44,7 +44,7 @@
   <!-- load nutch defaults last so that they can be overridden above -->
   <property file="${nutch.root}/default.properties" />
 
-  <ivy:settings id="ivy.instance" file="${nutch.root}/ivy/ivysettings.xml" />
+  <ivy:settings id="ivy.instance" file="${nutch.root}/ivysettings.xml" />
 
   <path id="plugin.deps"/>
 
