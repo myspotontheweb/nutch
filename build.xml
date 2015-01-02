@@ -46,13 +46,13 @@
 
   <available classname="org.apache.ivy.Main" property="ivy.installed"/>
  
-  <target name="ivy-install" description="Install ivy" unless="ivy.installed">
+  <target name="ivy-install" description="--> Install ivy" unless="ivy.installed">
     <mkdir dir="${user.home}/.ant/lib"/>
     <get dest="${user.home}/.ant/lib/ivy.jar" src="${ivy.url}"/>
     <fail message="Ivy has been installed. Run the build again"/>
   </target>
 
-  <target name="ivy-resolve" depends="ivy-install" description="Use ivy to resolve classpaths">
+  <target name="ivy-resolve" depends="ivy-install" description="--> Use ivy to resolve classpaths">
     <ivy:resolve/>
 
     <ivy:report todir='${build.dir}/ivy-reports' graph='false' xml='false'/>
@@ -62,7 +62,7 @@
     <ivy:cachepath pathid="build.path"   conf="build"/>
   </target>
 
-  <target name="ivy-clean" description="Purge ivy cache">
+  <target name="ivy-clean" description="--> Purge ivy cache">
     <ivy:cleancache/>
   </target>
 
@@ -836,7 +836,7 @@
   </path>
   
   <!-- target: eclipse   ================================================ -->
-  <target name="eclipse" depends="clean-eclipse,init,job" description="Create eclipse project files">
+  <target name="eclipse" depends="clean-eclipse,init,job" description="--> Create eclipse project files">
 
 	 <pathconvert property="eclipse.project">
 	   <path path="${basedir}"/>
