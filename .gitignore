@@ -6,3 +6,5 @@ build/
 runtime/
 logs/
 *.swp
+.classpath
+.project

@@ -76,6 +76,10 @@
       <resolver ref="apache-snapshot"/>
       <resolver ref="sonatype"/>
     </chain>
+    <packager name="archives" buildRoot="${user.home}/.ivy2/packager/build" resourceCache="${user.home}/.ivy2/packager/cache">
+      <ivy pattern="file:///${basedir}/ivy/repository/[orgPath]/[module]/[revision]/ivy.xml"/>
+      <artifact pattern="file:///${basedir}/ivy/repository/[orgPath]/[module]/[revision]/packager.xml"/>
+    </packager>
   </resolvers>
   <modules>
     <!--
@@ -83,5 +87,9 @@
     rather than look for them online.
     -->
     <module organisation="org.apache.nutch" name=".*" resolver="internal"/>
+    <!--
+    Force these modules to be retrieved from downloaded archives
+    -->
+    <module organisation="net.sourceforge" name="ant-eclipse"  resolver="archives"/>
   </modules>
 </ivysettings>

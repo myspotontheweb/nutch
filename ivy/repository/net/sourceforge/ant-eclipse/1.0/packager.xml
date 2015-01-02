@@ -1,0 +1,12 @@
+<packager-module version="1.0">
+
+  <property name="name" value="${ivy.packager.module}"/>
+  <property name="version" value="${ivy.packager.revision}"/>
+  <property name="zipname" value="${name}-${version}"/>
+
+  <resource dest="archive" url="http://downloads.sourceforge.net/project/ant-eclipse/ant-eclipse/1.0/ant-eclipse-1.0.bin.tar.bz2" sha1="3e529dc8e99a9ce9a601be6f14d684e8ca865abe"/>
+
+  <build>
+    <move file="archive/lib/${zipname}-jvm1.2.jar" tofile="artifacts/jars/${name}.jar"/>
+  </build>
+</packager-module>
