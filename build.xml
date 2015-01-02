@@ -777,16 +777,10 @@
   <!-- ================================================================== -->
   <!-- RAT targets                                                        -->
   <!-- ================================================================== -->
-  <target name="rat-sources-typedef" description="--> run RAT antlib task">
-    <typedef resource="org/apache/rat/anttasks/antlib.xml" >
-      <classpath>
-        <fileset dir="." includes="rat*.jar"/>
-      </classpath>
-    </typedef>
-  </target>
 
-  <target name="rat-sources" depends="rat-sources-typedef"
-	  description="--> runs RAT tasks over src/java">
+  <target name="rat-sources" depends="ivy-resolve" description="--> runs RAT tasks over src/java">
+    <taskdef uri="antlib:org.apache.rat.anttasks" resource="org/apache/rat/anttasks/antlib.xml" classpathref="build.path"/>
+
     <rat:report xmlns:rat="antlib:org.apache.rat.anttasks">
       <fileset dir="src">
       	<include name="java/**/*"/>
